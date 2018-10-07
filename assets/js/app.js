@@ -4,9 +4,10 @@ itemsArr.map((p) => {
 
     $(".card-deck").append(itemString);
 });
-//items in the users cart
+//items in the users cart array
 let cartItems = [];
-//event listener to to add items to the cartItems array when the "add to cart" button is clicked
+//event listener to to add items to the cartItems array when the "add to cart" button is clicked.
+//I didn't have enough time to add a button to remove the items from the cart if wanted to by the user.
 $(".add").click(function () {
     let itemTitle = $(this).attr("data-title");
     let itemPrice = $(this).attr("data-price");
@@ -16,7 +17,8 @@ $(".add").click(function () {
     });
     displayCart();
 });
-//this function loops through the items in the cartItemsArray array and appends them to the index.html
+
+//this function loops through the items in the cartItemsArray array and appends them to the index.html page and diplays them in a container for the user.
 function displayCart() {
     cartItemsArray = [];
     cartItems.map(function (item) {
@@ -28,16 +30,26 @@ function displayCart() {
     $(".checkoutItems").html(cartItemsStr)
 }
 
-let totalPrice = 0;
-
+//This function list the items in the cart inside of the "check out" modal and calculates the total price of the items.
 $(".check-out").click(function () {
+    let totalPrice = 0;
     totalArr = [];
-
+    //maps through all items added in cart and pulls out the first two numbers, concatenates them, and parses them to integers.
     cartItems.map(function (number) {
-        totalArr.push(number.price.split('')[1]);
-    })
-    totalArr.reduce(function(a,b) {
-        totalPrice = parseInt(a) + parseInt(b);
-    })
+        let a = number.price.split('')[1];
+        let b = number.price.split('')[2];
+        let c = a + '' + b;
+        totalArr.push(parseInt(c));
+    });
+    
+    //if only one item in cart, no need to loop.  Total price is the price of the only item in the cart
+    if (totalArr.length <= 1){
+        totalPrice = totalArr[0];
+    }
+    //loops through prices added to the "totalArr" array and adds up total
+    totalArr.reduce(function (a,b) {
+         return totalPrice = a + b;
+    });
+    //
     $("#total").html('Total: $' + totalPrice + '.00');
-})
+});
