@@ -49,7 +49,8 @@
                         <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn-outline-success my-2 my-sm-0 btn" data-toggle="modal" data-target="#exampleModal">Check Out</button>
+                        <button class="btn-outline-success my-2 my-sm-0 btn check-out" data-toggle="modal" data-target="#exampleModal">Check
+                            Out</button>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -59,10 +60,13 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="catalog-container">
             <!--Users Cart-->
-            <div>
-
+            <div class="card user-cart">
+                <h4>Cart</h4>
+                <ul class="list-group list-group-flush cartItems">
+                    <!-- <li class="list-group-item">Cras justo odio</li> -->
+                </ul>
             </div>
 
             <!--Content Area for Market Place-->
@@ -87,7 +91,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                            <ul class="list-group list-group-flush checkoutItems">
+                                    <!-- <li class="list-group-item">Cras justo odio</li> -->
+                            </ul>
+                            <p id="total">Total: </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

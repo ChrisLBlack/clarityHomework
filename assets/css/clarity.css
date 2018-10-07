@@ -1,5 +1,6 @@
 
 .card-deck {
+    width: 75%;
     margin: 5%;
 }
 
@@ -7,8 +8,34 @@
     flex: 1 0 30%;
     margin-top: 2%;
 }
+
+.catalog-container{
+    display: flex;
+    height: 100%;
+}
+
+.catalog-container .user-cart {
+    width: 25%;
+}
+
+.catalog-container .user-cart h4{
+    padding: 1%;
+    text-align: center;
+}
+
 .card-footer {
     justify-content: space-between;
     align-items: center;
     display: flex;;
+}
+
+@media only screen and (max-width: 768px) {
+    .catalog-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .catalog-container .user-cart {
+        width: 100%;
+    }
 }
